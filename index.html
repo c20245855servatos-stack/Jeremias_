@@ -12,57 +12,131 @@
 
 <body>
 
-     <h1 class="text-3xl font-bold underline text-red-700"> 
-      jeremias
+     <h1 class="text-3xl bg-gray-950 text-white italic text-center"> 
+      Jeremias
     </h1>
 
-    <button id="switch">Switch</button>
-    <header>
-        <nav>
-            <span>@_jer.mias</span>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Me</a></li>
+   
+    <header >
+        <nav class=" items-center justify-between px-6 py-5 pb-20">
+            <div class="pb-8">
+            <span class=" text-xl font-bold text-blue-500">
+                @_jer.mias</span>
+                </div>
+                <div class=" rounded-2xl text-l bg-blue-500 text-white italic text-center pb-5">
+            <ul class="flex gap-130  pl-4 pt-6">
+                <li><a href="#projects"
+                     class="text-brown-300 transition hover:text-blue-400"
+                    >Projects</a></li>
+                <li><a href="#services"
+                     class="text-brown-300 transition hover:text-blue-400"
+                    >Services</a></li>
+                <li><a href="#contact"
+                     class="text-brown-300 transition hover:text-blue-400"
+                    >Contact Me</a></li>
             </ul>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section id="projects"> 
-            <h2 class="projects">My Projects</h2>
+    <main class="mx-auto grid max-w-xl gap-8 px-6 pb-10 md:grid-cols-1  rounded-2xl">
+
+<div class=" rounded-xl border border-cyan-200 bg-white p-6 shadow-lg">
+ <section id="projects"
+                 class="rounded-2xl border border-blue-800 bg-cyan-500 p-10 text-center ">
+            <h2 class="projects " >My Projects</h2>
             <p>Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
             </p>
         </section>
-
-        <section id="services">
-            <h2 class="services">My Services</h2>
+        </div>
+<div class=" rounded-xl border border-cyan-200 bg-white p-6 shadow-lg">
+        <section id="services"
+        class="rounded-2xl border border-blue-800 bg-cyan-500 p-10 text-center ">
+            <h2 class="services ">My Services</h2>
             <p>Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
                 Analyst</p>
         </section>
+        </div>
+<div class=" rounded-xl border border-cyan-200 bg-white p-6 shadow-lg">
+        <section id="contact"
+    class="mx-auto w-full max-w-3xl rounded-2xl border border-cyan-400
+           bg-cyan-500 p-8 shadow-lg">
 
-        <section id="contact">
-            <h2 class="contact">Let's build together!</h2>
-            <form action="#">
-                <!-- Name -->
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+    <h2 class="mb-8 text-xl font-bold">
+        Let's Build Together!
+    </h2>
 
-                <!-- Email -->
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+    <form action="#" class="flex flex-col gap-5">
 
-                <!-- Message -->
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="5" required></textarea>
+        <!-- Name -->
+        <div>
+            <label for="name"
+                class="mb-2 block text-left font-small text-gray-950">
+                Name
+            </label>
 
-                <!-- Submit -->
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full rounded-lg border border-blue-700
+                       bg-cyan-800 px-4 py-3 text-white
+                       outline-none focus:border-gray-950
+                       focus:ring-2 focus:ring-gray-950/20  ">
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label for="email"
+                class="mb-2 block text-left font-small text-gray-950">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full rounded-lg border border-blue-700
+                       bg-cyan-800 px-4 py-3 text-white
+                       outline-none focus:border-gray-950
+                       focus:ring-2 focus:ring-gray-950/20">
+        </div>
+
+        <!-- Message -->
+        <div>
+            <label for="message"
+                class="mb-2 block text-left font-small text-gray-950">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full resize-none rounded-lg border border-blue-700
+                       bg-cyan-800 px-4 py-3 text-white
+                       outline-none focus:border-gray-950
+                       focus:ring-2 focus:ring-gray-950/20"></textarea>
+        </div>
+
+        <!-- Button -->
+        <button
+            type="submit"
+            class="w-full rounded-lg bg-gray-950 px-6 py-3
+                   font-semibold text-white transition
+                   hover:bg-gray-800">
+            Send Message
+        </button>
+
+    </form>
+</section>
+        </div>
     </main>
 
-    <!-- <script src="script.js"></script> -->
+   
 </body>
 
 </html>
