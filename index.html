@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>My Portfolio</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -13,7 +12,7 @@
         @custom-variant dark (&:where(.dark, .dark *));
 
         .btn-primary {
-            @apply m-2 border-4 border-blue-800 bg-sky-300 px-6 py-3 font-black uppercase text-blue-950 transition-none hover:bg-blue-800 hover:text-white dark:border-sky-300 dark:bg-sky-300 dark:text-blue-950 dark:hover:bg-white;
+            @apply m-2 border-4 border-blue-800 bg-sky-300 px-6 py-3 font-black uppercase text-blue-950 hover:bg-blue-800 hover:text-white dark:border-sky-300 dark:bg-sky-300 dark:text-blue-950 dark:hover:bg-sky-200 dark:hover:text-blue-950;
         }
 
         .glass-card {
@@ -24,10 +23,12 @@
 
 <body class="min-h-screen bg-sky-100 font-mono text-blue-950 transition-colors dark:bg-blue-950 dark:text-white">
 
-    <div class="flex justify-center border-b-4 border-blue-800 px-6 py-4 dark:border-sky-300">
-        <button id="toggle" class="btn-primary" type="button">
-          
-        </button>
+   
+<div id="cursor" class="pointer-events-none fixed top-0 left-0 z-50 h-6 w-6 -translate-y-1/2 border-2 border-sky-800 bg-blue-400"></div>
+    
+<div class="flex items-center justify-center gap-2 border-b-4 border-blue-800 px-6 py-4 dark:border-sky-300">
+        <button id="toggle" class="btn-primary" type="button">Switch</button>
+        <button id="reset" class="btn-primary" type="button">Reset</button>
     </div>
 
     <header class="border-b-4 border-blue-800 dark:border-sky-300">
@@ -148,17 +149,67 @@
       
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script>
-    const tb = document.querySelector("#toggle");
-    const html = document.querySelector("html");
+        console.log("GSAP ver", gsap.version);
 
-    tb.addEventListener("click", function () {
-        html.classList.toggle("dark");
+        
+ // gsap.to("h1", { x:200,duration:2});
 
-        tb.textContent = "Switch";
-    });
+    // gsap.from("h1", { rotation:360,duration:2});
 
-    tb.textContent = "Switch";
-</script>
+    //    gsap.from("a", { rotation:360,duration:10});
+
+    // gsap.fromTo("h1", { opacity:0},{opacity:1,duration:5});
+
+   
+
+    // // ease
+
+    // //  gsap.from ("section",{y:-60,opacoty:0,duration:1,ease:"bounce.out"});
+
+
+
+    // // stager
+
+    // gsap.from ("nav a",{y:-60,opacity:0,duration:1,ease:"elastic.out(1, 0.5)",stagger:0.5});
+
+
+
+    // timeline
+
+        const tl = gsap.timeline({ defaults: { duration: 0.5, ease: "power2.out" } });
+
+        tl.from("nav a", { y: -60, opacity: 0, duration: 1, ease: "elastic.out(1, 0.5)", stagger: 0.5 });
+        tl.from("#projects", { x: -60, opacity: 0, stagger: 0.5 });
+        tl.from("#services", { x: 60, opacity: 0, stagger: 0.5 });
+        tl.from("#contact", { x: -60, opacity: 0, stagger: 0.5 });
+        
+        // gsap.quickSetter
+       const setX = gsap.quickSetter("#cursor", "x", "px");
+       const setY = gsap.quickSetter("#cursor", "y", "px");
+
+       window.addEventListener("mousemove", (e) => {
+         setX(e.clientX);
+         setY(e.clientY);
+       });
+    </script>
+    <script>
+        const toggleBtn = document.querySelector("#toggle");
+        const resetBtn = document.querySelector("#reset");
+        const html = document.querySelector("html");
+
+        toggleBtn.addEventListener("click", function () {
+            html.classList.toggle("dark");
+            gsap.from("#toggle", { rotation: 360, duration: 1 });
+        });
+
+        resetBtn.addEventListener("click", function () {
+            html.classList.add("dark");
+            tl.restart();
+            
+        });
+    </script>
 </body>
+
 </html>
